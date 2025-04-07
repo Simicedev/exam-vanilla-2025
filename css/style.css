@@ -1,0 +1,37 @@
+/* Globals*/
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "inria sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #303633;
+  --primairy-color: #f2e9e4;
+  --text-color: ;
+  --secondary-color: #7cc6fe;
+  --btn-color: #832232;
+}
+::selection {
+  color: var(--secondary-color);
+  background: var(--bg-color);
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 3rem 0 2rem;
+}
+/* End of Globals*/
