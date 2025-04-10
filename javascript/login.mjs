@@ -1,8 +1,9 @@
 import { saveToken } from "./auth.mjs";
-const AUTH_BASE = "https://v2.api.noroff.dev/auth";
+
+const AUTH_BASE = "https://v2.api.noroff.dev/auth/login";
 
 export async function loginUser(email, password) {
-  const response = await fetch(`${AUTH_BASE}/login`, {
+  const response = await fetch(`${AUTH_BASE}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

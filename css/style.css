@@ -12,7 +12,7 @@
 :root {
   --bg-color: #303633;
   --primairy-color: #f2e9e4;
-  --text-color: ;
+  /* --text-color: ; */
   --secondary-color: #7cc6fe;
   --btn-color: #832232;
 }
@@ -22,6 +22,7 @@
 }
 a {
   text-decoration: none;
+  color: var(--primairy-color);
 }
 li {
   list-style: none;
@@ -35,3 +36,86 @@ section {
   padding: 3rem 0 2rem;
 }
 /* End of Globals*/
+
+/* navbar */
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  height: 4rem;
+  background-color: var(--bg-color);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 1rem;
+  list-style: none;
+  justify-content: flex-end;
+  
+}
+
+nav li:first-child {
+  margin-right: auto;
+}
+
+nav li a {
+  text-decoration: none;
+  color: var(--primairy-color);
+  font-weight: 500;
+
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primairy-color);
+  font-size: 1.5rem;
+}
+
+/* Mobile Styles */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-right: auto;
+  }
+}
+#signout-link {
+  display: none;
+}
+
+#login-link, #register-link {
+  display: block;  
+}
