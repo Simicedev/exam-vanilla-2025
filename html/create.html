@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Icons from BoxIcons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <box-icon color="white" name="menu"></box-icon>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="#">About</a></li>
+          <li id="login-link"><a href="login.html">Login</a></li>
+          <li id="register-link"><a href="register.html">Register</a></li>
+        <li id="signout-link" style="display: none;"><a href="javascript:void(0);" id="signout-btn">Sign Out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Create a New Post</h1>
+      <form id="createPostForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit">Create Post</button>
+      </form>
+    </main>
+    <script type="module" src="/javascript/main.mjs"></script>
+  </body>
+</html>

@@ -17,12 +17,12 @@ export async function fetchBlogPosts() {
   }
 }
 
-export function refresh(el) {
-  el.innerHTML = "";
-}
+// export function refresh(el) {
+//   el.innerHTML = "";
+// }
 
-export function createHTML(template) {
-  const parser = new DOMParser();
-  const parsedDocument = parser.parseFromString(template, "text/html");
-  return parsedDocument.body.firstChild;
-}
+// export function createHTML(template) {
+//   const parser = new DOMParser();
+//   const parsedDocument = parser.parseFromString(template, "text/html");
+//   return parsedDocument.body.firstChild;
+// }

@@ -1,6 +1,6 @@
 import { saveToken } from "./auth.mjs";
 import { refresh } from "./utils.mjs";
-const AUTH_BASE = "https://v2.api.noroff.dev/auth";
+const AUTH_BASE = "https://v2.api.noroff.dev/auth/register";
 
 const form = document.querySelector("#registerForm");
 
@@ -13,7 +13,6 @@ form.addEventListener("submit", async (e) => {
   const password = form.password.value;
 
   try {
-    refresh();
     // Call registerUser from auth.js
     await registerUser(name, email, password);
 
@@ -27,7 +26,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 export async function registerUser(name, email, password) {
-  const url = `${AUTH_BASE}/register`;
+  const url = `${AUTH_BASE}`;
 
   const body = JSON.stringify({
     name,

@@ -10,11 +10,25 @@
   </head>
   <body>
     <header>
+      <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+      <box-icon color="white" name="menu"></box-icon>
+    </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="#">About</a></li>
+          <li id="login-link"><a href="login.html">Login</a></li>
+          <li id="register-link"><a href="register.html">Register</a></li>
+        <li id="signout-link" style="display: none;"><a href="javascript:void(0);" id="signout-btn">Sign Out</a></li>
+        </ul>
+      </nav>
+      <section class="hero">
         
+      </section>
     </header>
-    <main>
-    
-  </main>
-    <script type="module" src= "/javascript/main.mjs"></script>
+    <main></main>
+    <script type="module" src="/javascript/main.mjs" defer></script>
+    <script type="module" src="/javascript/auth.mjs" defer></script>
   </body>
 </html>
