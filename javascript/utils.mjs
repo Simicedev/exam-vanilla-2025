@@ -1,3 +1,4 @@
+// Global usages
 export async function fetchBlogPosts() {
   const username = "IceFeather";
   const url = `https://v2.api.noroff.dev/blog/posts/${username}`;
@@ -16,7 +17,7 @@ export async function fetchBlogPosts() {
   }
 }
 
-export function clearNode(el) {
+export function refresh(el) {
   el.innerHTML = "";
 }
 

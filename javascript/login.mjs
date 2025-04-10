@@ -1,8 +1,6 @@
-// login.js
-
 import { saveToken } from "./auth.mjs";
 const AUTH_BASE = "https://v2.api.noroff.dev/auth";
-// Login user
+
 export async function loginUser(email, password) {
   const response = await fetch(`${AUTH_BASE}/login`, {
     method: "POST",
@@ -29,9 +27,10 @@ form.addEventListener("submit", async (e) => {
   const email = form.email.value;
   const password = form.password.value;
 
+  // checks that loginUser is called with the correct parameters, if true send user to index.html
   try {
     await loginUser(email, password);
-    window.location.href = "index.html"; // Redirect to homepage
+    window.location.href = "index.html"; // To homepage
   } catch (error) {
     alert("Login failed: " + error.message);
   }
