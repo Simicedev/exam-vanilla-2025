@@ -12,7 +12,7 @@ export function getToken() {
 // Remove token
 export function removeToken() {
   localStorage.removeItem("accessToken");
-  window.location.href = "login.html";
+  window.location.href = "/account/login.html";
 }
 
 // Check if the user is logged in
@@ -20,6 +20,18 @@ export function isLoggedIn() {
   return getToken() !== null;  // If there's a token, the user is logged in
 }
 
+export function getUsernameFromToken() {
+  const token = getToken();
+  if (!token) return null;
+
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.name;
+  } catch (error) {
+    console.error("Invalid token:", error);
+    return null;
+  }
+}
 
 export function updateNavBar() {
   const isLoggedInState = isLoggedIn();
@@ -46,6 +58,6 @@ export function initializeNavbar() {
 document.getElementById("signout-btn")?.addEventListener("click", () => {
   removeToken(); // Remove the user's access token
   alert("You have been logged out!");
-  window.location.href = "index.html";
+  window.location.href = "/index.html";
 });
 

@@ -31,7 +31,7 @@ form.addEventListener("submit", async (e) => {
   // checks that loginUser is called with the correct parameters, if true send user to index.html
   try {
     await loginUser(email, password);
-    window.location.href = "index.html"; // To homepage
+    window.location.href = "/index.html"; // To homepage
   } catch (error) {
     alert("Login failed: " + error.message);
   }

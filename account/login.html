@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Icons from BoxIcons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+  <body>
+    <header>
+        <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <box-icon color="white" name="menu"></box-icon>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/post/create.html">Create</a></li>
+          <li><a href="/post/edit.html">Edit</a></li>
+          <li id="login-link"><a href="/account/login.html">Login</a></li>
+          <li id="register-link">
+            <a href="/account/register.html">Register</a>
+          </li>
+          <li id="signout-link" style="display: none">
+            <a href="javascript:void(0);" id="signout-btn">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+    <form>
+      <input type="email" name="email" required />
+      <input type="password" name="password" required />
+      <button type="submit">Log in</button>
+      <p>No account? Lets Fix that! <a href="/account/register.html">Register Account</a></p>
+    </form>
+
+  </main>
+    <script type="module" src= "/javascript/login.mjs"></script>
+  </body>
+</html>

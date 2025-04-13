@@ -1,5 +1,4 @@
 import { saveToken } from "./auth.mjs";
-import { refresh } from "./utils.mjs";
 const AUTH_BASE = "https://v2.api.noroff.dev/auth/register";
 
 const form = document.querySelector("#registerForm");
@@ -13,12 +12,11 @@ form.addEventListener("submit", async (e) => {
   const password = form.password.value;
 
   try {
-    // Call registerUser from auth.js
     await registerUser(name, email, password);
 
     // Redirect to login page after successful registration
     alert("Registration successful! Please log in.");
-    window.location.href = "login.html";
+    window.location.href = "/account/login.html";
   } catch (error) {
     // Display error message if registration fails
     alert("Registration failed: " + error.message);
