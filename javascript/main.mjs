@@ -1,10 +1,10 @@
 import { initializeNavbar } from "./auth.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initializeNavbar(); 
-});
+  // Initialize navbar  (login/logout buttons)
+  initializeNavbar();
 
-document.addEventListener("DOMContentLoaded", () => {
+  // hamburger toggle
   const toggleButton = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 

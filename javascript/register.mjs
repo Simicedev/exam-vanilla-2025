@@ -47,11 +47,10 @@ export async function registerUser(name, email, password) {
       throw new Error(data.errors?.[0]?.message || "Registration failed");
     }
 
-    saveToken(data.accessToken);
+    saveToken(data.data.accessToken, data.data.name || data.data.user.name);
     return data;
   } catch (error) {
     console.error("Registration error:", error.message);
     throw error;
   }
 }
-
