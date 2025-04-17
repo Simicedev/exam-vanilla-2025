@@ -118,3 +118,9 @@ nav li a {
 #login-link, #register-link {
   display: block;  
 }
+
+#editContainer{
+  border: black solid 1px;
+  width: 100%;
+  height: auto;
+}
