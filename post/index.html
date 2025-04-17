@@ -1,1 +1,37 @@
 <!-- This is the specific blog post page, in other word, here posts will be rendered, i think right now, lol -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Icons from BoxIcons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <box-icon color="white" name="menu"></box-icon>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/post/create.html">Create</a></li>
+          <li><a href="/post/edit.html">Edit</a></li>
+          <li id="login-link"><a href="/account/login.html">Login</a></li>
+          <li id="register-link">
+            <a href="/account/register.html">Register</a>
+          </li>
+          <li id="signout-link" style="display: none">
+            <a href="javascript:void(0);" id="signout-btn">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main></main>
+    <script type="module" src="/javascript/main.mjs" defer></script>
+    <script type="module" src="/javascript/auth.mjs" defer></script>
+  </body>
+</html>
