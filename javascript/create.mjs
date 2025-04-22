@@ -18,7 +18,6 @@ form.addEventListener("submit", async (e) => {
   const title = form.title.value.trim();
   const body = form.body.value.trim();
   const tagsInput = form.tags.value.trim();
-  const created = form.releaseDate.value;
   const imageUrl = form.imageUrl.value.trim();
   const imageAlt = form.imageAlt.value.trim();
 
@@ -29,7 +28,7 @@ form.addEventListener("submit", async (e) => {
     title,
     body,
     tags,
-    created: created || new Date().toISOString(),
+    created: new Date().toISOString(), // Add the current date and time
   };
 
   // Add the media object only if imageUrl is provided
@@ -62,14 +61,15 @@ form.addEventListener("submit", async (e) => {
       );
     }
 
-    const postId = postData.data?.id;
+    const post = postData.data;
 
-    if (!postId) {
-      throw new Error("Post created but no ID was returned from API.");
+    // Add the created date manually if it's missing in the API response
+    if (!post.created) {
+      post.created = new Date().toISOString();
     }
 
     // Save the post locally
-    savePostLocally(postData.data);
+    savePostLocally(post);
 
     alert("Post created successfully!");
     window.location.href = `/post/edit.html`;
@@ -79,9 +79,13 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// Save post to localStorage
+// Save post to localStorage and update the carousel
 function savePostLocally(post) {
   const posts = JSON.parse(localStorage.getItem("userPosts")) || [];
   posts.push(post);
   localStorage.setItem("userPosts", JSON.stringify(posts));
+
+  // Reinitialize the carousel
+  const event = new Event("DOMContentLoaded");
+  document.dispatchEvent(event);
 }

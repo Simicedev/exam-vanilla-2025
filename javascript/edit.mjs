@@ -52,6 +52,14 @@ function populateEditForm(post) {
   document.getElementById("image").value = post.media?.url || "";
   document.getElementById("imageAlt").value = post.media?.alt || "";
 
+  // Display the created date if available
+  const createdDateElement = document.getElementById("createdDate");
+  if (createdDateElement) {
+    createdDateElement.textContent = `Created on: ${
+      post.created ? new Date(post.created).toLocaleString() : "Unknown"
+    }`;
+  }
+
   document.getElementById("editContainer").style.display = "block";
   document.getElementById("noPostMessage").style.display = "none";
 }
@@ -101,7 +109,7 @@ function loadAllPosts() {
   });
 }
 
-// Handle form submission for updating a post
+
 // Handle form submission for updating a post
 document
   .getElementById("editPostForm")
@@ -188,7 +196,9 @@ document
 function updateLocalPost(postId, updatedPost) {
   const posts = JSON.parse(localStorage.getItem("userPosts")) || [];
   const updatedPosts = posts.map((post) =>
-    post.id === postId ? updatedPost : post
+    post.id === postId
+      ? { ...post, ...updatedPost, created: post.created } // Preserve the created date
+      : post
   );
   localStorage.setItem("userPosts", JSON.stringify(updatedPosts));
 }
@@ -238,7 +248,7 @@ document
 
         alert("Post deleted successfully!");
         // Redirect to the post overview page
-        window.location.href = `/post/edit.html`;
+        window.location.href = `/post/edit.html`; // Corrected URL
       } else {
         const result = await response.json();
         throw new Error(
