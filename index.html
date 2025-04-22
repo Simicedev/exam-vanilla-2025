@@ -14,8 +14,10 @@
         <button class="menu-toggle" aria-label="Toggle menu">
           <box-icon color="white" name="menu"></box-icon>
         </button>
+
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
+          <div id="navbarMessage"></div>
           <li><a href="/post/create.html">Create</a></li>
           <li><a href="/post/edit.html">Edit</a></li>
           <li id="login-link"><a href="/account/login.html">Login</a></li>
@@ -27,10 +29,19 @@
           </li>
         </ul>
       </nav>
-      <section class="hero"></section>
     </header>
-    <main></main>
+    <main>
+      <div class="carousel" id="carousel">
+        <button id="prevBtn" class="carousel-btn">❮</button>
+        <div id="carouselItems" class="carousel-items"></div>
+        <button id="nextBtn" class="carousel-btn">❯</button>
+      </div>
+      <h1>Latest Blog Posts</h1>
+      
+      <div id="blogFeed" class="blog-feed"></div>
+    </main>
     <script type="module" src="/javascript/main.mjs" defer></script>
     <script type="module" src="/javascript/auth.mjs" defer></script>
+    <script type="module" src="/javascript/carousel.mjs" defer></script>
   </body>
 </html>
