@@ -1,6 +1,7 @@
 /* Globals*/
 @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "carousel.css";
+@import "specific-blog.css";
 * {
   font-family: "inria sans", sans-serif;
   margin: 0;
@@ -119,11 +120,7 @@ nav li a {
   display: block;  
 }
 
-#editContainer{
-  border: black solid 1px;
-  width: 100%;
-  height: auto;
-}
+
 
 /* CSS for 12-post-thumbnail grid */
 
@@ -157,4 +154,19 @@ nav li a {
   margin: 8px 0;
   font-size: 1.2rem;
   color: #333;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  justify-content: center;
+}
+
+.controls input,
+.controls select {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }

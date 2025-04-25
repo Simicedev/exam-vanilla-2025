@@ -1,39 +1,89 @@
-// Fetch and display the blog post
-async function fetchBlogPost() {
-  const postId = new URLSearchParams(window.location.search).get("id");
-  if (!postId) {
-    document.getElementById("blogPost").innerHTML =
-      "<p>Post not found. Please go back to the homepage.</p>";
+import { getToken, getUsername } from "./auth.mjs";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const blogPostContainer = document.getElementById("blogPostContainer");
+
+  if (!blogPostContainer) {
+    console.error("Blog post container not found.");
     return;
   }
 
-  const posts = JSON.parse(localStorage.getItem("userPosts")) || [];
-  const post = posts.find((p) => p.id === postId);
+  // Get the post ID from the URL query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get("id");
 
-  if (post) {
-    displayBlogPost(post);
-  } else {
-    document.getElementById("blogPost").innerHTML =
-      "<p>Post not found. Please go back to the homepage.</p>";
+  if (!postId) {
+    blogPostContainer.innerHTML = `<p>Post not found. Please check the URL.</p>`;
+    return;
   }
-}
 
-// Display the blog post content
-function displayBlogPost(post) {
-  const blogPost = document.getElementById("blogPost");
-  blogPost.innerHTML = `
-    <h1>${post.title}</h1>
-    <p>${post.body}</p>
-    <p><strong>Tags:</strong> ${post.tags.join(", ")}</p>
-    ${
-      post.media?.url
-        ? `<img src="${post.media.url}" alt="${post.media.alt}" />`
-        : ""
+  const token = getToken();
+  const username = getUsername();
+  const apiUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const postResponse = await response.json();
+      console.log("Fetched Post Data:", postResponse); // Debug the API response
+
+      // Accessing the post data
+      const post = postResponse.data;
+
+      // Render the blog post
+      blogPostContainer.innerHTML = `
+        <div class="blog-post">
+          <h1>${post.title || "Untitled Post"}</h1>
+          <p class="blog-meta">
+            By <strong>${post.author?.name || "Unknown Author"}</strong> on ${
+        post.created
+          ? new Date(post.created).toLocaleDateString()
+          : "Unknown Date"
+      }
+          </p>
+          <div class="blog-banner">
+            <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${
+        post.media?.alt || "Blog Banner"
+      }" />
+          </div>
+          <div class="blog-content">
+            ${post.body || "No content available for this post."}
+          </div>
+          <div class="blog-author">
+            <img src="${
+              post.author?.avatar?.url || "/images/avatar-placeholder.jpg"
+            }" alt="${
+        post.author?.avatar?.alt || "Author Avatar"
+      }" class="author-avatar" />
+            <p><strong>${post.author?.name || "Unknown Author"}</strong></p>
+            <p>${post.author?.bio || "No bio available."}</p>
+          </div>
+          <div class="blog-share">
+            <button id="shareButton" aria-label="Share this post">
+              <box-icon name="share-alt" color="#333"></box-icon> Share
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Add share functionality
+      const shareButton = document.getElementById("shareButton");
+      shareButton.addEventListener("click", () => {
+        const shareUrl = `${window.location.origin}/post/index.html?id=${postId}`;
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          alert("Post URL copied to clipboard!");
+        });
+      });
+    } else {
+      blogPostContainer.innerHTML = `<p>Unable to load the post. Please try again later.</p>`;
     }
-  `;
-}
-
-// Initialize the blog post page
-document.addEventListener("DOMContentLoaded", () => {
-  fetchBlogPost();
+  } catch (error) {
+    console.error("Error fetching the post:", error);
+    blogPostContainer.innerHTML = `<p>Unable to load the post. Please try again later.</p>`;
+  }
 });

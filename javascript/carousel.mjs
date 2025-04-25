@@ -1,7 +1,7 @@
 import { getToken, getUsername } from "./auth.mjs";
 document.addEventListener("DOMContentLoaded", () => {
   // Populate the carousel with blog posts
-  function populateCarousel(posts) {
+  function AddToCarousel(posts) {
     const carouselItems = document.getElementById("carouselItems");
     if (!carouselItems) {
       console.error("Carousel items container not found in the DOM.");
@@ -20,15 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Sort posts by creation date in descending order (most recent first)
     const sortedPosts = posts.sort(
       (a, b) => new Date(b.created) - new Date(a.created)
     );
-    console.log("Sorted Posts:", sortedPosts);
+    // console.log("Sorted Posts:", sortedPosts);
 
-    // Get the 3 most recent posts
-    const recentPosts = sortedPosts.slice(0, 3); // Take the first 3 posts
-    console.log("Recent Posts:", recentPosts);
+    // 3 most recent posts
+    const recentPosts = sortedPosts.slice(0, 3); 
+    // console.log("Recent Posts:", recentPosts);
 
     carouselItems.innerHTML = recentPosts
       .map(
@@ -59,9 +58,7 @@ async function fetchCarouselPosts() {
 
     if (response.ok) {
       const result = await response.json();
-
-      // Log the API response to inspect its structure
-      console.log("API Response:", result);
+      // console.log("API Response:", result);
 
       // Ensure the API response contains an array
       const posts = Array.isArray(result.data) ? result.data : [];
@@ -69,18 +66,18 @@ async function fetchCarouselPosts() {
         throw new Error("API response is not an array.");
       }
 
-      localStorage.setItem("userPosts", JSON.stringify(posts)); // Update local cache
-      populateCarousel(posts);
+      localStorage.setItem("userPosts", JSON.stringify(posts));
+      AddToCarousel(posts);
     } else {
       console.error("Failed to fetch posts from the API.");
-      populateCarousel([]); // Show empty carousel
+      AddToCarousel([]); // Show empty carousel
     }
   } catch (error) {
     console.error("Error fetching posts:", error);
 
     // Fallback to localStorage
     const cachedPosts = JSON.parse(localStorage.getItem("userPosts")) || [];
-    populateCarousel(cachedPosts);
+    AddToCarousel(cachedPosts);
   }
 }
 

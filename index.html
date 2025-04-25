@@ -37,7 +37,26 @@
         <button id="nextBtn" class="carousel-btn">❯</button>
       </div>
       <h1>Latest Blog Posts</h1>
-      
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for a blog post..."
+          aria-label="Search"
+          id="searchInput"
+        />
+        <select id="filterDropdown">
+          <option value="">All Tags</option>
+          <option value="tag1"></option>
+          <option value="tag2"></option>
+          <option value="tag3"></option>
+        </select>
+        <select id="sortDropdown">
+          <option value="default">New-Old</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+        </select>
+      </div>
       <div id="blogFeed" class="blog-feed"></div>
     </main>
     <script type="module" src="/javascript/main.mjs" defer></script>
