@@ -1,39 +1,39 @@
 .carousel {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between navigation buttons */
+  justify-content: space-between; 
   position: relative;
   overflow: hidden;
-  width: 100%; /* Full width of the container */
-  margin: 20px auto; /* Center the carousel */
+  width: 100%; 
+  margin: 20px auto; 
 }
 
 .carousel-items {
   display: flex;
-  flex-wrap: nowrap; /* Prevent items from wrapping */
-  gap: 20px; /* Add spacing between items */
+  flex-wrap: nowrap; 
+  gap: 20px; 
   transition: transform 0.5s ease-in-out;
-  width: 100%; /* Ensure items take up full width */
+  width: 100%; 
 }
 
 .carousel-item {
-  flex: 0 0 80%; /* Each item takes up 80% of the carousel width */
+  flex: 0 0 80%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #f9f9f9; /* Light background for items */
-  border: 1px solid #ddd; /* Add a border for separation */
-  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .carousel-item img {
-  max-width: 100%; /* Ensure images are responsive */
+  max-width: 100%; 
   height: auto;
-  border-radius: 8px; /* Match the border radius of the item */
+  border-radius: 8px; 
 }
 
 .carousel-btn {
@@ -46,7 +46,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  border-radius: 50%; /* Circular buttons */
+  border-radius: 50%;
 }
 
 #prevBtn {
@@ -59,10 +59,10 @@
 
 @media (max-width: 768px) {
   .carousel-item {
-    flex: 0 0 90%; /* Adjust item width for smaller screens */
+    flex: 0 0 90%; 
   }
 
   .carousel-btn {
-    padding: 8px 12px; /* Smaller buttons for smaller screens */
+    padding: 8px 12px;
   }
 }

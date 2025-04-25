@@ -18,6 +18,7 @@
         </button>
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
+          <div id="navbarMessage"></div>
           <li><a href="/post/create.html">Create</a></li>
           <li><a href="/post/edit.html">Edit</a></li>
           <li id="login-link"><a href="/account/login.html">Login</a></li>
@@ -31,10 +32,16 @@
       </nav>
     </header>
     <main>
-      <article id="blogPost">
-        <!-- Blog post content will be dynamically inserted here -->
-      </article>
+      <div id="blogPostContainer" class="blog-post">
+        
+      </div>
     </main>
+    <script
+      type="module"
+      src="/javascript/specific-blog-post.mjs"
+      defer
+    ></script>
+    <script type="module" src="/javascript/specific-blog-post.mjs"></script>
     <script type="module" src="/javascript/main.mjs" defer></script>
     <script type="module" src="/javascript/auth.mjs" defer></script>
   </body>

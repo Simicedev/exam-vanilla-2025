@@ -35,7 +35,7 @@ form.addEventListener("submit", async (e) => {
   if (imageUrl) {
     payload.media = {
       url: imageUrl,
-      alt: imageAlt || "Image", // Default alt text if none is provided
+      alt: imageAlt || "No Image",
     };
   }
 
@@ -68,7 +68,7 @@ form.addEventListener("submit", async (e) => {
       post.created = new Date().toISOString();
     }
 
-    // Save the post locally
+    
     savePostLocally(post);
 
     alert("Post created successfully!");
@@ -85,7 +85,7 @@ function savePostLocally(post) {
   posts.push(post);
   localStorage.setItem("userPosts", JSON.stringify(posts));
 
-  // Reinitialize the carousel
+  
   const event = new Event("DOMContentLoaded");
   document.dispatchEvent(event);
 }
