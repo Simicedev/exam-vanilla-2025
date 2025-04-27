@@ -26,13 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log("Sorted Posts:", sortedPosts);
 
     // 3 most recent posts
-    const recentPosts = sortedPosts.slice(0, 3); 
+    const recentPosts = sortedPosts.slice(0, 3);
     // console.log("Recent Posts:", recentPosts);
 
     carouselItems.innerHTML = recentPosts
       .map(
         (post) => `
       <div class="carousel-item">
+        <img src="${
+          post.media?.url ||
+          "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?ga=GA1.1.1116145374.1744922010&semt=ais_hybrid&w=740"
+        }" alt="${post.media?.alt || ""}" class="carousel-image" />
         <h3>${post.title}</h3>
         <p>${post.body.substring(0, 100)}...</p>
         <a href="/post/index.html?id=${

@@ -47,9 +47,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
           </p>
           <div class="blog-banner">
-            <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${
-        post.media?.alt || "Blog Banner"
-      }" />
+            <img src="${
+              post.media?.url ||
+              "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?ga=GA1.1.1116145374.1744922010&semt=ais_hybrid&w=740"
+            }" alt="${post.media?.alt || "Blog Banner"}" />
           </div>
           <div class="blog-content">
             ${post.body || "No content available for this post."}
