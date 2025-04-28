@@ -16,7 +16,8 @@
   width: 100%;
 }
 .carousel-image {
-  background-size:;
+  background-size: cover;
+  
   background-repeat: no-repeat;
   width: 100%;
   max-height: 500px;
