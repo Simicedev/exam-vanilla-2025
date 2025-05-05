@@ -90,9 +90,14 @@ function loadAllPosts() {
     .map(
       (post) => `
       <div class="post-item">
-        <h3>${post.title}</h3>
-        <p>${post.body.substring(0, 100)}...</p>
-        <button class="edit-btn" data-id="${post.id}">Edit</button>
+        <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${
+        post.media?.alt || "Post Image"
+      }" class="post-image" />
+        <div class="post-content">
+          <h3>${post.title}</h3>
+          <p>${post.body.substring(0, 20)}...</p>
+          <button class="edit-btn" data-id="${post.id}">Edit</button>
+        </div>
       </div>
     `
     )

@@ -1,13 +1,13 @@
 import { initializeNavbar, getUsername, getToken } from "./auth.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize navbar (login/logout buttons)
+  // Initialize navbar
   initializeNavbar();
   const navbarMessage = document.getElementById("navbarMessage");
   if (navbarMessage) {
     const username = getUsername();
     if (username) {
-      navbarMessage.textContent = `Welcome, ${username}`;
+      navbarMessage.textContent = `Welcome, ${username}!`;
     } else {
       navbarMessage.textContent = "Hi, Guest";
     }
@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toggleButton && navLinks) {
     toggleButton.addEventListener("click", () => {
       navLinks.classList.toggle("show");
+      if (navLinks.classList.contains("show")) {
+        navbarMessage.style.display = "none"; // Hide navbarMessage which is a greet and logout message
+      } else {
+        navbarMessage.style.display = "block"; // Show navbarMessage
+      }
     });
   }
 });
@@ -79,6 +84,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Generate the blog feed thumbnails!!!
   function generateBlogFeed(posts) {
+    if (!posts || posts.length === 0) {
+      blogFeed.innerHTML = `
+      <div class="carousel-message">
+        <p>Create a new post to get started! All your posts will be displayed right here in your personal blog feed!</p>
+        <a href="/post/create.html" class="create-post-btn">Create Post</a>
+      </div>
+    `;
+      return;
+    }
+
     blogFeed.innerHTML = posts
       .map(
         (post) => `
