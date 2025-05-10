@@ -1,21 +1,29 @@
 @import "style.css";
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 100%;
 
+    padding: 20px;
+}
 .login-form{
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    height: auto;
-    background-color: var(--secondary-color);
+    height: 100%;
 }
 
 .input-field{
+    color: var(--text-color);
     max-width: 450px;
     width: 100%;
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
-.login-btn{
-  
+.input-field input{
+    color: black;
 }

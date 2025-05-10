@@ -17,16 +17,16 @@
 }
 
 :root {
-  --bg-color: #050404;
-  --text-color: #ffff;
-  --primairy-color: #5e0035;
-  --text-color2: #000000;
-  --secondary-color: #1b2f33;
-  --btn-color: #dbe9ee;
+  --bg-color: #38BDF8;
+  --text-color: #1F2937 ;
+  --primairy-color: #38BDF8;
+  --text-color2: #FFFFFF;
+  --secondary-color: #E5E7EB ;
+  --btn-color: #14B8A6;
 }
 
 body {
-  background-color: var(--bg-color);
+  /* background-color: var(--primairy-color); */
   color: var(--text-color);
   font-size: 1rem;
   line-height: 1.5;
@@ -72,7 +72,7 @@ nav {
   position: fixed;
   top: 0;
   height: 4rem;
-  background-color: var(--bg-color);
+  background-color: var(--secondary-color);
   padding: 0 2rem;
   display: flex;
   flex-direction: row;
@@ -369,6 +369,7 @@ footer {
   color: var(--text-color);
   font-size: 0.9rem;
   border-top: 1px solid var(--text-color);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 footer col {
   flex: 1;
@@ -472,7 +473,7 @@ footer col {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
-  background-color: rgba(94, 0, 53, 0.3);
+  background-color: rgba(202, 202, 202, 0.401);
   transition: background-color 0.3s ease-in-out;
   border: var(--text-color) 1px solid;
 }

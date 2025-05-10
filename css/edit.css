@@ -55,13 +55,13 @@
 
 .post-content h3 {
   font-size: 1.2rem;
-  color: var(--text-color2);
+  color: var(--text-color);
   margin: 0;
 }
 
 .post-content p {
   font-size: 0.95rem;
-  color: var(--text-color2);
+  color: var(--text-color);
   margin: 0;
 }
 
@@ -69,7 +69,7 @@
   align-self: flex-start;
   padding: 8px 12px;
   background-color: var(--btn-color);
-  color: var(--text-color2);
+  color: var(--text-color);
   border: none;
   border-radius: 5px;
   font-size: 0.9rem;

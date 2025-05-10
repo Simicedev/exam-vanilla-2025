@@ -1,5 +1,12 @@
 import { getToken, getUsername } from "./auth.mjs";
+document.addEventListener("DOMContentLoaded", () => {
+  const token = getToken();
 
+  if (!token) {
+    alert("You must be logged in to access the Create page.");
+    window.location.href = "/account/login.html"; // Redirect to login page
+  }
+});
 async function fetchPostData() {
   const token = getToken();
   const username = getUsername();

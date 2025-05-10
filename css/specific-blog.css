@@ -1,9 +1,11 @@
 @import "style.css";
+
 .blog-post {
   max-width: 800px;
   margin: 0 auto;
   padding: 16px;
 }
+  
 
 .blog-post h1 {
   font-size: 2rem;
