@@ -1,9 +1,10 @@
 @import "style.css";
 
 .blog-post {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
+  background-color: var(--background-color);
 }
   
 
