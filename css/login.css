@@ -54,3 +54,41 @@
     cursor: pointer;
     user-select: none;
   }
+  @media (max-width: 520px) {
+    .input-field {
+      min-width: 0 !important;
+      width: 96vw !important;
+      padding: 4px;
+      font-size: 0.9rem;
+    }
+    .captcha {
+      padding: 4px 2px;
+      font-size: 0.85rem;
+    }
+    .captcha label {
+      font-size: 0.85rem;
+    }
+    .captcha input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  @media (max-width: 320px) {
+    .input-field {
+      min-width: 0 !important;
+      width: 96vw !important;
+      padding: 4px;
+      font-size: 0.9rem;
+    }
+    .captcha {
+      padding: 4px 2px;
+      font-size: 0.85rem;
+    }
+    .captcha label {
+      font-size: 0.85rem;
+    }
+    .captcha input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+  }

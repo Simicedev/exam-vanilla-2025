@@ -104,7 +104,7 @@ function loadAllPosts() {
           <h3>${post.title}</h3>
           <p>${post.body.substring(0, 20)}...</p>
           <button class="edit-btn" data-id="${post.id}">Edit</button>
-          <button class="delete-btn" data-id="${post.id}">Delete</button>
+          
         </div>
       </div>
     `
@@ -248,51 +248,54 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 // Handle post deletion
-document
+const deletePostBtn = document
   .getElementById("deletePostBtn")
-  .addEventListener("click", async function () {
-    const token = getToken();
-    const username = getUsername();
-    const postId = new URLSearchParams(window.location.search).get("id");
-    const apiUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+  if (deletePostBtn) {
+    deletePostBtn.addEventListener("click", async function () {
+      const token = getToken();
+      const username = getUsername();
+      const postId = new URLSearchParams(window.location.search).get("id");
+      const apiUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
 
-    if (!postId) {
-      alert("No post ID found. Cannot delete the post.");
-      return;
-    }
-
-    const confirmDelete = confirm("Are you sure you want to delete this post?");
-    if (!confirmDelete) {
-      return;
-    }
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        // Remove the post from localStorage
-        deleteLocalPost(postId);
-
-        alert("Post deleted successfully!");
-        // Redirect to the post overview page
-        window.location.href = `/post/edit.html`; // Corrected URL
-      } else {
-        const result = await response.json();
-        throw new Error(
-          result.errors?.[0]?.message || "Failed to delete post."
-        );
+      if (!postId) {
+        alert("No post ID found. Cannot delete the post.");
+        return;
       }
-    } catch (error) {
-      console.error("Error deleting post:", error);
-      alert("Error: " + error.message);
-    }
-  });
 
+      const confirmDelete = confirm(
+        "Are you sure you want to delete this post?"
+      );
+      if (!confirmDelete) {
+        return;
+      }
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          // Remove the post from localStorage
+          deleteLocalPost(postId);
+
+          alert("Post deleted successfully!");
+          // Redirect to the post overview page
+          window.location.href = `/post/edit.html`; // Corrected URL
+        } else {
+          const result = await response.json();
+          throw new Error(
+            result.errors?.[0]?.message || "Failed to delete post."
+          );
+        }
+      } catch (error) {
+        console.error("Error deleting post:", error);
+        alert("Error: " + error.message);
+      }
+    });
+  }
 // Remove a post from localStorage
 function deleteLocalPost(postId) {
   const posts = JSON.parse(localStorage.getItem("userPosts")) || [];

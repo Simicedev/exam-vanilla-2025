@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButton.addEventListener("click", () => {
       navLinks.classList.toggle("show");
       if (navLinks.classList.contains("show")) {
-        navbarMessage.style.display = "none"; // Hide navbarMessage which is a greet and logout message
+        if (navbarMessage) navbarMessage.style.display = "none";
       } else {
-        navbarMessage.style.display = "block"; // Show navbarMessage
+        if (navbarMessage) navbarMessage.style.display = "block";
       }
     });
   }
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const blogFeed = document.getElementById("blogFeed"); 
+  const blogFeed = document.getElementById("blogFeed");
   if (!blogFeed) {
     if (window.location.pathname === "/index.html") {
       console.error("Blog feed container not found.");
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     blogFeed.innerHTML = `<p>Unable to load blog posts. Please try again later.</p>`;
   }
 
-  // Generate the blog feed thumbnails!!!
+  // Generate the blog feed thumbnails
   function generateBlogFeed(posts) {
     if (!posts || posts.length === 0) {
       blogFeed.innerHTML = `
@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       .join("");
   }
 
-  
   function handleSearchFilterSort() {
     const query = searchInput?.value.toLowerCase() || "";
     const selectedTag = filterDropdown?.value || "";
@@ -123,7 +122,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return matchesSearch && matchesTag;
     });
 
-    
     if (sortOption === "name-asc") {
       filteredPosts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortOption === "name-desc") {
@@ -141,11 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!carousel) return;
 
   const observer = new IntersectionObserver(
-    (entries, observer) => {
+    (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           carousel.classList.add("visible");
-          
         }
       });
     },
@@ -153,35 +150,47 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(carousel);
-});
-const carouselItems = document.querySelector(".carousel-items");
-const slides = document.querySelectorAll(".carousel-item");
-let currentSlide = 0;
 
-function updateCarousel() {
-  carouselItems.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
+  // Carousel navigation logic (only if carousel exists)
+  const carouselItems = document.querySelector(".carousel-items");
+  const slides = document.querySelectorAll(".carousel-item");
+  let currentSlide = 0;
 
-// Arrow button event listeners
-document.getElementById("prevBtn").addEventListener("click", () => {
-  if (currentSlide > 0) {
-    currentSlide--;
-    updateCarousel();
+  function updateCarousel() {
+    if (carouselItems) {
+      carouselItems.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
   }
-});
 
-document.getElementById("nextBtn").addEventListener("click", () => {
-  if (currentSlide < slides.length - 1) {
-    currentSlide++;
-    updateCarousel();
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateCarousel();
+      }
+    });
   }
-});
 
-// Keyboard arrow support
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft") {
-    document.getElementById("prevBtn").click();
-  } else if (e.key === "ArrowRight") {
-    document.getElementById("nextBtn").click();
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateCarousel();
+      }
+    });
+  }
+
+  // Keyboard arrow support (only if carousel is present)
+  if (prevBtn && nextBtn) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        prevBtn.click();
+      } else if (e.key === "ArrowRight") {
+        nextBtn.click();
+      }
+    });
   }
 });
