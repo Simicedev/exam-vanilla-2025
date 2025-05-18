@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Feed</title>
+    <meta name="description" content="N1Blogs - A simple blogging platform">
+    <meta name="keywords" content="N1Blogs, blogging, platform, team-friendly">
+    <meta name="author" content="N1Blogs Team">
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<header>
+    <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <box-icon color="white" name="menu" aria-label="Menu"></box-icon>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/post/blog-feed.html" class="btn">Blog feed</a></li>
+          <div id="navbarMessage"></div>
+          <li><a href="/post/create.html">Create</a></li>
+          <li><a href="/post/edit.html">Edit</a></li>
+          <li id="login-link"><a href="/account/login.html">Login</a></li>
+          <li id="register-link">
+            <a href="/account/register.html">Register</a>
+          </li>
+          <li id="signout-link" style="display: none">
+            <a href="javascript:void(0);" id="signout-btn">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+  </header>
+<body>
+    <main>
+        <div class="blog-feed-container">
+            <h1>Blog Feed for you!</h1>
+            <div class="controls">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for a blog post..."
+                aria-label="Search"
+              />
+              <select id="filterDropdown">
+                <option value="">All Tags</option>
+                <option value="tag1"></option>
+                <option value="tag2"></option>
+                <option value="tag3"></option>
+              </select>
+              <select id="sortDropdown">
+                <option value="default">New-Old</option>
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+              </select>
+            </div>
+            <div id="blogFeed" class="blog-feed"></div>
+          </div>
+    </main>
+    <script type="module" src="/javascript/main.mjs" defer></script>
+    <script type="module" src="/javascript/auth.mjs" defer></script>
+    <!-- <script type="module" src="/javascript/carousel.mjs" defer></script> -->
+</body>
+
+</html>

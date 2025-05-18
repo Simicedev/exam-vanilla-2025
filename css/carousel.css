@@ -1,15 +1,122 @@
 @import "style.css";
-
-.carousel {
+.carousel-container {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  background: rgba(39, 105, 141, 0.1);
+  width: 100vw;
+  padding: 20px;
+  /* border: black 1px solid; */
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.5s, transform 0.5s;
+  height: auto;
+}
+.carousel-container.visible {
+  animation: carouselFadeIn 0.7s cubic-bezier(0.4, 2, 0.6, 1) forwards;
+}
+.carousel,
+.carouselInfo {
+  text-align: center;
   align-items: center;
-  justify-content: space-between;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
-  width: 90%;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  animation: step-start 0.5s ease-in-out;
 }
-/* messages only displayed on profiles with no posts */
+.carouselInfo{
+  justify-content: center;
+}
+@keyframes carouselFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.carouselInfo h2 {
+  color: var(--btn-color);
+  font-size: 2rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.carouselInfo p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  max-width: 550px;
+}
+
+.carouselInfo a.btn {
+  background-color: var(--btn-color);
+  color: var(--text-color2);
+  padding: 10px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.carouselInfo a.btn:hover {
+  background: var(--primairy-color);
+  color: var(--text-color);
+}
+@media (max-width: 720px) {
+  .carousel-container {
+    flex-direction: row-reverse;
+    gap: 16px;
+    padding: 12px 0;
+    width: 100%;
+  }
+  .carousel,
+  .carouselInfo {
+    max-width: 100%;
+    width: 100%;
+  }
+  .carouselInfo h2 {
+    font-size: 1.8rem;
+  }
+  .carouselInfo p {
+    font-size: 1rem;
+  }
+  .carouselInfo a.btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 500px) {
+  .carouselInfo h2 {
+    font-size: 1.05rem;
+  }
+  .carouselInfo p {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 320px) {
+  .carouselInfo h2 {
+    font-size: 0.9rem;
+  }
+  .carouselInfo p {
+    font-size: 0.8rem;
+  }
+}
+/* message is only displayed on users with no posts */
 .carousel-message {
   display: flex;
   width: 100%;
@@ -43,6 +150,7 @@
   transform: scale(1.05);
 }
 /* end of no post messages */
+
 .carousel-items {
   display: flex;
   flex-wrap: nowrap;
@@ -50,7 +158,7 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.3, 2, 0.6, 1);
 }
 
 .carousel-item {
@@ -61,17 +169,17 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--secondary-color);
-  border: 1px solid var(--text-color);
+
   border-radius: 8px;
   padding: 20px;
-  max-height: 600px ;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
 }
 
 .carousel-image {
   padding: 5px;
   width: 100%;
+  max-width: 1800px;
+  border-radius: 10px;
   height: auto;
   max-height: 400px; /* Set a max height for the images */
   object-fit: cover;
@@ -92,11 +200,11 @@
 }
 
 #prevBtn {
-  left: 25px;
+  left: 35px;
 }
 
 #nextBtn {
-  right: 25px;
+  right: 35px;
 }
 
 /* Responsiveness */
@@ -115,7 +223,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   .carousel {
     margin: 10px auto;
   }
@@ -126,13 +234,13 @@
   }
 
   .carousel-image {
-    max-height: 180px;
+    min-height: 112px;
     object-fit: cover;
   }
 
   .carousel-btn {
-    padding: 6px 10px;
-    font-size: 0.9rem;
+    padding: 4px 6px;
+    font-size: 0.7rem;
   }
 
   #prevBtn {
@@ -160,7 +268,7 @@
 
   .carousel-btn {
     padding: 5px 8px;
-    font-size: 0.8rem;
+    font-size: 0.rem;
   }
 
   #prevBtn {
@@ -189,4 +297,3 @@
   opacity: 0.8;
   transform: scale(1.05);
 }
-

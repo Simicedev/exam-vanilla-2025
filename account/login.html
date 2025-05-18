@@ -4,18 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <meta name="description" content="N1Blogs - A simple blogging platform" />
+    <meta name="keywords" content="N1Blogs, blogging, platform, team-friendly" />
+    <meta name="author" content="N1Blogs Team" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Icons from BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </head>
   <body>
     <header>
-        <nav>
+      <nav>
         <button class="menu-toggle" aria-label="Toggle menu">
-          <box-icon color="white" name="menu"></box-icon>
+          <box-icon color="white" name="menu" aria-label="Menu"></box-icon>
         </button>
+
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/post/blog-feed.html" id="blog-feed-link">Blog feed</a>
+          </li>
+          <div id="navbarMessage"></div>
           <li><a href="/post/create.html">Create</a></li>
           <li><a href="/post/edit.html">Edit</a></li>
           <li id="login-link"><a href="/account/login.html">Login</a></li>
@@ -29,16 +37,34 @@
       </nav>
     </header>
     <main class="login-container">
-    <form class="login-form" id="loginForm">
-      <h1>Log in</h1>
-      <input class="input-field" type="email" name="email" placeholder="Email" required />
-      <input class="input-field" type="password" name="password" placeholder="Password" required />
-      <button class="login-btn" type="submit">Log in</button>
-      <p>No account? Lets Fix that! <a href="/account/register.html">Register Account</a></p>
-    </form>
-
-  </main>
-    <script type="module" src= "/javascript/login.mjs"></script>
+      <form class="login-form" id="loginForm">
+        <h1>Log in</h1>
+        <input
+          class="input-field"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <div class="captcha">
+          <input type="checkbox" id="captcha" required/>
+          <label for="captcha">I'm not a robot</label>
+        </div>
+        <button class="login-btn" type="submit">Log in</button>
+        <p>
+          No account? Lets Fix that!
+          <a href="/account/register.html">Register Account</a>
+        </p>
+      </form>
+    </main>
+    <script type="module" src="/javascript/login.mjs"></script>
     <script type="module" src="/javascript/main.mjs"></script>
     <script type="module" src="/javascript/auth.mjs"></script>
   </body>

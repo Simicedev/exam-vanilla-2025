@@ -134,3 +134,54 @@ document.addEventListener("DOMContentLoaded", async () => {
     generateBlogFeed(filteredPosts);
   }
 });
+
+// code for animation on carousel
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel-container");
+  if (!carousel) return;
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          carousel.classList.add("visible");
+          
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(carousel);
+});
+const carouselItems = document.querySelector(".carousel-items");
+const slides = document.querySelectorAll(".carousel-item");
+let currentSlide = 0;
+
+function updateCarousel() {
+  carouselItems.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+// Arrow button event listeners
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentSlide > 0) {
+    currentSlide--;
+    updateCarousel();
+  }
+});
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (currentSlide < slides.length - 1) {
+    currentSlide++;
+    updateCarousel();
+  }
+});
+
+// Keyboard arrow support
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") {
+    document.getElementById("prevBtn").click();
+  } else if (e.key === "ArrowRight") {
+    document.getElementById("nextBtn").click();
+  }
+});

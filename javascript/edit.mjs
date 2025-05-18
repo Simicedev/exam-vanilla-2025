@@ -104,13 +104,33 @@ function loadAllPosts() {
           <h3>${post.title}</h3>
           <p>${post.body.substring(0, 20)}...</p>
           <button class="edit-btn" data-id="${post.id}">Edit</button>
+          <button class="delete-btn" data-id="${post.id}">Delete</button>
         </div>
       </div>
     `
     )
     .join("");
+  // Add event listeners to delete and edit button
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const postId = button.dataset.id;
+        const confirmDelete = confirm(
+          "Are you sure you want to delete this post?"
+        );
+        if (!confirmDelete) return;
 
-  // Add event listeners to the edit buttons
+       
+        deleteLocalPost(postId);
+
+        
+        button.closest(".post-item").remove();
+
+        
+      });
+    });
+  
   const editButtons = document.querySelectorAll(".edit-btn");
   editButtons.forEach((button) => {
     button.addEventListener("click", (e) => {

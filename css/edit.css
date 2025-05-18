@@ -65,7 +65,7 @@
   margin: 0;
 }
 
-.post-content .edit-btn {
+.post-content .edit-btn, .delete-btn {
   align-self: flex-start;
   padding: 8px 12px;
   background-color: var(--btn-color);
@@ -76,7 +76,10 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
+.post-content button{
+  display: flex;
+  flex-direction: row;
+}
 .post-content .edit-btn:hover {
   background-color: var(--btn-color);
   opacity: 0.7;
@@ -87,6 +90,14 @@
   transform: scale(1);
 }
 
+.post-content .delete-btn:hover{
+  background-color: var(--btn-color);
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+.post-content .delete-btn:active {
+  transform: scale(1);
+}
 /* Styles for the edit form */
 #editContainer {
   display: none; /* Hidden by default */
@@ -112,8 +123,8 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #ffffff; /* White background */
-  color: var(--text-color2);
+  background-color: var(--text-color2);
+  color: var(--text-color);
 }
 
 #editPostForm textarea {
@@ -124,13 +135,13 @@
 #editPostForm input:focus,
 #editPostForm textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: var(--primairy-color);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 #editPostForm button {
   padding: 10px 15px;
-  background-color: var(--primary-color);
+  background-color: var(--btn-color);
   color: var(--text-color2);
   border: none;
   border-radius: 5px;
@@ -167,13 +178,13 @@
   }
 
   .post-item {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
-  .post-image {
+  
+  .post-content {
     width: 100%;
-    height: auto;
   }
 
   .post-content h3 {

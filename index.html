@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>N1blogs</title>
+    <meta name="description" content="N1Blogs - A simple blogging platform" />
+    <meta name="keywords" content="N1Blogs, blogging, platform, team-friendly" />
+    <meta name="author" content="N1Blogs Team" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Icons from BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -17,6 +20,7 @@
 
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
+          <li><a href="/post/blog-feed.html" id="blog-feed-link">Blog feed</a></li>
           <div id="navbarMessage"></div>
           <li><a href="/post/create.html">Create</a></li>
           <li><a href="/post/edit.html">Edit</a></li>
@@ -45,8 +49,8 @@
           <h2>What is N1Blogs?</h2>
           <p>
             N1Blogs is a simple, team-friendly platform that replaces routine
-            meetings with personal blog feeds. Employees log weekly progress and
-            updates, making it easy to share work without wasting time in
+            meetings with personal blog feeds. Log weekly progress and
+            updates, making it easy to share work without wasting time with
             unnecessary check-ins.
           </p>
         </div>
@@ -60,7 +64,7 @@
           ></box-icon>
           <h2>Create - Edit - Delete</h2>
           <p>
-            Create, edit, and delete your blog posts with ease. N1Blogs makes it
+            Create, edit, and delete your posts with ease. N1Blogs makes it
             simple to manage your content and keep your blog up to date.
           </p>
         </div>
@@ -72,38 +76,25 @@
             class="icon-animate"
           ></box-icon>
           <h2>How to get started?</h2>
-          <p>Sign up for an account, create your first blog post!</p>
+          <p>Make your account and start logging, Make your worklife easier!</p>
+          <a href="account/register.html">Register now!</a>
         </div>
       </div>
     </section>
-      <div class="carousel" id="carousel">
-        <button id="prevBtn" class="carousel-btn">❮</button>
-        <div id="carouselItems" class="carousel-items"></div>
-        <button id="nextBtn" class="carousel-btn">❯</button>
-      </div>
-      <section class="blog-feed-container">
-        <h1>Blog Feed for you!</h1>
-        <div class="controls">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for a blog post..."
-            aria-label="Search"
-          />
-          <select id="filterDropdown">
-            <option value="">All Tags</option>
-            <option value="tag1"></option>
-            <option value="tag2"></option>
-            <option value="tag3"></option>
-          </select>
-          <select id="sortDropdown">
-            <option value="default">New-Old</option>
-            <option value="name-asc">Name (A-Z)</option>
-            <option value="name-desc">Name (Z-A)</option>
-          </select>
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+          <button id="prevBtn" class="carousel-btn">❮</button>
+          <div id="carouselItems" class="carousel-items"></div>
+          <button id="nextBtn" class="carousel-btn">❯</button>
         </div>
-        <div id="blogFeed" class="blog-feed"></div>
-      </section>
+          <div class="carouselInfo">
+            <h2 id="carouselTitle">Your most recent Updates!</h2>
+            <p id="carouselDescription">Did you know by using our application, your company is saving valuable time, making YOU an even greater asset! Get a raise! </p>
+            <a id="carouselLink" href="/post/create.html" class="btn">Create more</a>
+          </div>
+        </div>
+      
+    
     </main>
     <footer>
       <div class="footer-col">
