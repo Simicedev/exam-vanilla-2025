@@ -1,0 +1,213 @@
+@import 'style.css';
+
+/* General styles for the edit page */
+#edit-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#edit-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Styles for the post list */
+#postList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.post-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: #ffffff; /* White background for contrast */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.post-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.post-content h3 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.post-content p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.post-content .edit-btn, .delete-btn {
+  align-self: flex-start;
+  padding: 8px 12px;
+  background-color: var(--btn-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.post-content button{
+  display: flex;
+  flex-direction: row;
+}
+.post-content .edit-btn:hover {
+  background-color: var(--btn-color);
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.post-content .edit-btn:active {
+  transform: scale(1);
+}
+
+.post-content .delete-btn:hover{
+  background-color: var(--btn-color);
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+.post-content .delete-btn:active {
+  transform: scale(1);
+}
+/* Styles for the edit form */
+#editContainer {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  gap: 15px;
+}
+
+#editPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#editPostForm label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+#editPostForm input,
+#editPostForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--text-color2);
+  color: var(--text-color);
+}
+
+#editPostForm textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#editPostForm input:focus,
+#editPostForm textarea:focus {
+  outline: none;
+  border-color: var(--primairy-color);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#editPostForm button {
+  padding: 10px 15px;
+  background-color: var(--btn-color);
+  color: var(--text-color2);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#editPostForm button:hover {
+  background-color: var(--btn-color);
+  transform: scale(1.05);
+}
+
+#editPostForm button:active {
+  transform: scale(1);
+}
+
+/* Message for no posts */
+#noPostMessage {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #edit-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .post-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  
+  .post-content {
+    width: 100%;
+  }
+
+  .post-content h3 {
+    font-size: 1rem;
+  }
+
+  .post-content p {
+    font-size: 0.85rem;
+  }
+
+  .post-content .edit-btn {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  #editPostForm input,
+  #editPostForm textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  #editPostForm button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}

@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           </div>
           <div class="blog-share">
             <button id="shareButton" aria-label="Share this post">
-              <box-icon name="share-alt" color="#333"></box-icon> Share
+              <box-icon name="share-alt" color="#fff"></box-icon> Share
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { saveToken } from "./auth.mjs";
 const AUTH_BASE = "https://v2.api.noroff.dev/auth/register";
 
-const form = document.querySelector("#registerForm");
+const form = document.querySelector(".register-form");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();

@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Post</title>
+    <meta name="description" content="N1Blogs - A simple blogging platform" />
+    <meta name="keywords" content="N1Blogs, blogging, platform, team-friendly" />
+    <meta name="author" content="N1Blogs Team" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Icons from BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -12,10 +15,12 @@
     <header>
       <nav>
         <button class="menu-toggle" aria-label="Toggle menu">
-          <box-icon color="white" name="menu"></box-icon>
+          <box-icon color="white" name="menu" aria-label="Menu"></box-icon>
         </button>
+
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
+          <li><a href="/post/blog-feed.html" id="blog-feed-link">Blog feed</a></li>
           <div id="navbarMessage"></div>
           <li><a href="/post/create.html">Create</a></li>
           <li><a href="/post/edit.html">Edit</a></li>
@@ -29,14 +34,15 @@
         </ul>
       </nav>
     </header>
-    <main>
+    <main id="edit-container">
       <h1>Edit Your Posts</h1>
-
+      
       <!-- Container for the list of posts -->
       <div id="postList"></div>
 
       <!-- Container for the edit form -->
       <div id="editContainer" style="display: none">
+
         <form id="editPostForm">
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" required />
@@ -68,6 +74,53 @@
         <p>No post found for editing. Please create a post first.</p>
       </div>
     </main>
+    <footer>
+      <div class="footer-col">
+        <h4>Where to find us!</h4>
+        <ul>
+          <li><a href="#">Big greengate avenue</a></li>
+          <li><a href="#">1080 Venstrebekk</a></li>
+          <li><a href="#">Grønland</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Legal</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="links">
+          <a href="#"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+              /></svg
+          ></a>
+          <a href="#"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+              /></svg
+          ></a>
+          <a href="#"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+              /></svg
+          ></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p>&copy; 2025 N1Blogs. All rights reserved.</p>
+      </div>
+    </footer>
     <script type="module" src="/javascript/main.mjs" defer></script>
     <script type="module" src="/javascript/auth.mjs" defer></script>
     <script type="module" src="/javascript/edit.mjs" defer></script>

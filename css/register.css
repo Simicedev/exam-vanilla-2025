@@ -1,0 +1,47 @@
+@import "style.css";
+/* @import "login.css"; */
+.register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 100%;
+    padding: 20px;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 100%;
+}
+
+.input-field{
+    color: var(--text-color);
+    min-width: 450px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: var(--bg-color) 1px solid;
+}
+
+@media (max-width: 320px) {
+    .input-field {
+      min-width: 0 !important;
+      width: 96vw !important;
+      padding: 4px;
+      font-size: 0.9rem;
+    }
+    .captcha {
+      padding: 4px 2px;
+      font-size: 0.85rem;
+    }
+    .captcha label {
+      font-size: 0.85rem;
+    }
+    .captcha input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+  }

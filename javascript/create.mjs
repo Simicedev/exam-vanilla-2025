@@ -2,6 +2,14 @@ import { getToken, getUsername } from "./auth.mjs";
 
 const form = document.getElementById("createPostForm");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const token = getToken();
+
+  if (!token) {
+    alert("You must be logged in to access the Create page.");
+    window.location.href = "/account/login.html"; // Redirect to login page
+  }
+});
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   console.log("Form submitted!");

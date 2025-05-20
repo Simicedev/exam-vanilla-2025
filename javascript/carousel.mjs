@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (posts.length === 0) {
-      carouselItems.innerHTML = `<p>No posts available. Create a new post to get started!</p>`;
+      carouselItems.innerHTML = `<div class="carousel-message">
+      <p>No posts available. Create a new post to get started!</p>
+      <a href="/post/create.html" class="create-post-btn">Create Post</a>
+      </div>`;
       return;
     }
 
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?ga=GA1.1.1116145374.1744922010&semt=ais_hybrid&w=740"
         }" alt="${post.media?.alt || ""}" class="carousel-image" />
         <h3>${post.title}</h3>
-        <p>${post.body.substring(0, 100)}...</p>
+        <p>${post.body.substring(0, 10)}...</p>
         <a href="/post/index.html?id=${
           post.id
         }" class="view-post-btn">Read More</a>
@@ -88,16 +91,17 @@ async function fetchCarouselPosts() {
   // Carousel navigation
   let currentIndex = 0;
 
-  function showCarouselItem(index) {
-    const carouselItems = document.getElementById("carouselItems");
-    if (!carouselItems || carouselItems.children.length === 0) {
-      console.error("Carousel items container not found or empty.");
-      return;
-    }
-    const totalItems = carouselItems.children.length;
-    currentIndex = (index + totalItems) % totalItems; // Wrap around
-    carouselItems.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+ function showCarouselItem(index) {
+   const carouselItems = document.getElementById("carouselItems");
+   if (!carouselItems || carouselItems.children.length === 0) {
+     console.error("Carousel items container not found or empty.");
+     return;
+   }
+   const totalItems = carouselItems.children.length;
+   const itemWidth = carouselItems.children[0].offsetWidth; // Dynamically get item width
+   currentIndex = (index + totalItems) % totalItems; // Wrap around
+   carouselItems.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+ }
 
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
