@@ -18,13 +18,14 @@
 
 :root {
   --bg-color: #8dd3e7;
-  --text-color: #1F2937 ;
+  --text-color: #1f2937;
   --primairy-color: #aed9ec;
-  --text-color2: #FFFFFF;
-  --secondary-color: #E5E7EB ;
-  --btn-color: #14B8A6;
+  --text-color2: #ffffff;
+  --secondary-color: #e5e7eb;
+  --btn-color: #14b8a6;
 }
-html,body{
+html,
+body {
   height: 100%;
   min-height: 100vh;
 }
@@ -35,10 +36,10 @@ body {
   line-height: 1.5;
   font-weight: 400;
   overflow-x: hidden;
-  
 }
 
-main, #home-container {
+main,
+#home-container {
   padding: 0 2rem;
   flex: 1;
   display: flex;
@@ -106,7 +107,7 @@ nav li a {
 .menu-toggle {
   display: none;
   border: none;
-  background: none ;
+  background: none;
   cursor: pointer;
   color: var(--text-color);
   font-size: 1.5rem;
@@ -184,7 +185,7 @@ nav li a {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
-.hero-section{
+.hero-section {
   background-image: url("/media/ChatGPT\ Image\ 13.\ mai\ 2025\,\ 21_25_51.png");
   background-size: cover;
   background-position: center;
@@ -197,7 +198,7 @@ nav li a {
   transition: background-color 0.3s ease-in-out;
   width: 1200px;
   height: auto;
-  margin:0;
+  margin: 0;
   width: 100%;
   max-width: 1900px;
 }
@@ -238,7 +239,7 @@ nav li a {
   margin: 0 auto;
   margin-bottom: 10px;
 }
-.hero-btn{
+.hero-btn {
   background-color: var(--btn-color);
   color: var(--text-color2);
   padding: 10px 20px;
@@ -278,18 +279,16 @@ nav li a {
   font-weight: 300;
   text-align: center;
   z-index: 500;
-  
 }
 @media (max-width: 768px) {
   .card-container {
-    /*Hello there mr Simon, I am a ghost*/
     /* flex-direction: column; */
     align-items: center;
     gap: 24px;
     padding: 8px;
     font-size: 14px;
   }
-  .card-box{
+  .card-box {
     width: 90vw;
     max-width: 400px;
     padding: 12px;
@@ -308,7 +307,7 @@ nav li a {
     width: 90vw;
     max-width: 350px;
     min-width: 250px;
-    height: 320px;         /* Fixed height for uniformity */
+    height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -319,19 +318,16 @@ nav li a {
   .website-title {
     font-size: 2.2rem;
   }
-  
 }
 @media (max-width: 320px) {
-  
   .website-title {
     font-size: 1.7rem;
-
   }
   .card-box {
     width: 90vw;
     max-width: 280px;
     min-width: 180px;
-    height: 260px; /* Fixed height for uniformity */
+    height: 260px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -389,7 +385,7 @@ nav li a {
 .blog-thumbnail h3 {
   margin: 8px 0;
   font-size: 1.2rem;
-  color:var(--text-color);
+  color: var(--text-color);
 }
 
 /* Controls */
@@ -407,12 +403,10 @@ nav li a {
   max-width: 200px;
   flex: 1;
   padding: 8px;
-  font-size: 1rem;;
+  font-size: 1rem;
   border-radius: 10px;
 }
 @media (min-width: 320px) and (max-width: 540px) {
-  
-
   .home-header h1 {
     font-size: 2rem;
   }
@@ -482,8 +476,6 @@ footer {
   font-size: 0.9rem;
   /* border-top: 1px solid var(--text-color); */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-  
-  
 }
 footer col {
   flex: 1;
@@ -518,7 +510,7 @@ footer col {
   height: 24px;
   transition: fill 0.3s ease;
 }
-.box-btn{
+.box-btn {
   background-color: var(--btn-color);
   color: var(--text-color2);
   padding: 10px 20px;
@@ -549,19 +541,19 @@ footer col {
 }
 @media (max-width: 540px) {
   footer {
-    padding: 15px; /* Further reduce padding */
+    padding: 15px;
   }
 
   .footer-col h4 {
-    font-size: 1rem; /* Reduce heading size */
+    font-size: 1rem;
   }
 
   .footer-col ul li a {
-    font-size: 0.8rem; /* Reduce link font size */
+    font-size: 0.8rem;
   }
 
   .footer-col .links svg {
-    width: 20px; /* Reduce icon size */
+    width: 20px;
     height: 20px;
   }
 }
