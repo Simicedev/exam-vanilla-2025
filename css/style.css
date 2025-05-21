@@ -304,13 +304,22 @@ nav li a {
     padding: 8px;
     font-size: 14px;
   }
+  .card-box {
+    width: 90vw;
+    max-width: 350px;
+    min-width: 250px;
+    height: 320px;         /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 12px;
+    font-size: 0.8rem;
+  }
   .website-title {
     font-size: 2.2rem;
   }
-  .card-box {
-    padding: 4px;
-    font-size: 0.8rem;
-  }
+  
 }
 @media (max-width: 320px) {
   
@@ -319,8 +328,15 @@ nav li a {
 
   }
   .card-box {
-    width: 85vw;
-    padding: 2px;
+    width: 90vw;
+    max-width: 280px;
+    min-width: 180px;
+    height: 260px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 6px;
     font-size: 0.85rem;
   }
 }
