@@ -19,7 +19,7 @@
 :root {
   --bg-color: #8dd3e7;
   --text-color: #1F2937 ;
-  --primairy-color: #38BDF8;
+  --primairy-color: #aed9ec;
   --text-color2: #FFFFFF;
   --secondary-color: #E5E7EB ;
   --btn-color: #14B8A6;
@@ -75,7 +75,7 @@ nav {
   position: fixed;
   top: 0;
   height: 4rem;
-  background-color: var(--secondary-color);
+  background-color: var(--primairy-color);
   padding: 0 2rem;
   display: flex;
   flex-direction: row;
@@ -461,11 +461,11 @@ footer {
   text-align: center;
   flex-wrap: wrap;
   padding: 40px;
-  background-color: var(--secondary-color);
+  background-color: var(--primairy-color);
   color: var(--text-color);
   font-size: 0.9rem;
-  border-top: 1px solid var(--text-color);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* border-top: 1px solid var(--text-color); */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
   
   
 }
@@ -478,7 +478,7 @@ footer col {
   text-underline-offset: 4px;
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: var(--btn-color);
+  color: var(--text-color);
 }
 .footer-col ul {
   list-style: none;

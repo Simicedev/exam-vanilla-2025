@@ -28,7 +28,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 900px;
+  max-width: 100%;
   height: auto;
   margin: 0 auto;
   animation: step-start 0.5s ease-in-out;
@@ -239,6 +239,8 @@
 @media (max-width: 540px) {
   .carousel {
     margin: 10px auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .carousel-item {
@@ -257,17 +259,17 @@
   }
 
   #prevBtn {
-    left: 15px;
+    left: 25px;
   }
 
   #nextBtn {
-    right: 15px;
+    right: 25px;
   }
 }
 
 @media (max-width: 320px) {
   .carousel {
-    margin: 5px auto;
+    margin: 10px auto;
   }
 
   .carousel-item {
@@ -285,11 +287,12 @@
   }
 
   #prevBtn {
-    left: 10px;
+    left: 20px;
+    
   }
 
   #nextBtn {
-    right: 10px;
+    right: 20px;
   }
 }
 .view-post-btn {

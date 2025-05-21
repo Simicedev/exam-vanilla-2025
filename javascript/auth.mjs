@@ -12,6 +12,7 @@ export function getToken() {
 // Remove token
 export function removeToken() {
   localStorage.removeItem("accessToken");
+  localStorage.removeItem("username");
   window.location.href = "/account/login.html";
 }
 
